@@ -45,7 +45,44 @@ body
 	font-family: $default-font
 	overflow-x: hidden
 	opacity: 1
+	&.ishome
+		.site-header
+			min-height: 700px
+			height: 100vh
+			background-color: $dark
+			color: #ffffff
+			.top-line
+				padding-top: 40px
+				position: absolute
+				width: 100%
+				z-index: 1
 
+.logo
+	img
+		width: 125px
+		height: auto
+		margin-left: 45px
+
+.phone
+	position: absolute
+	right: 85px
+	top: 44px
+	font-family: "firasans", sans-serif
+	font-size: 22px
+	white-space: nowrap
+	.fa
+		color: #555
+		font-size: 22px
+		margin-right: 3px
+
+
+section, header
+	position: relative
+	background-size: cover
+	background-position: center
+	
+section
+	background-color: #fff
 
 .img-responsive
 	display: block
@@ -58,5 +95,77 @@ body
 ::selection
 	background-color: $accent
 	color: #fff
+
+
+.hamburger
+	right: 0
+	position: absolute
+	top: 30px
+	.hamburger-box
+		width: 34px
+		.hamburger-inner, .hamburger-inner::after, .hamburger-inner::before
+			border-radius: 0
+			color: #fff
+			width: 34px
+			height: 2px
+			background-color: #fff
+
+.mm-navbar
+	height: auto
+	position: relative
+	border: none
+	.mm-navbar__title
+		padding: 0
+		img
+			width: 128px
+			height: auto
+			margin: 10px 0 35px
+
+
+//html.mm-opened
+	overflow-y: scroll
+//.mm-panels > .mm-pannel.mm-hasnavbar
+	right: -18px
+
+
+.mm-listitem::after
+	display: none
+
+.mm-listitem_selected > .mm-listitem__text
+	background-color: transparent
+
+.mm-listitem_selected > .mm-listitem__text
+	color: $accent!important
+.mm-panel::after, .mm-panel::before
+	height: 0
+.mm-panels > .mm-panel > .mm-listview:first-child, .mm-panels > .mm-panel > .mm-navbar + .mm-listview
+	margin-top: 0
+
+
+
+.mm-listview
+	> li
+		> a
+			transition: color .25s ease
+			padding:
+				left: 14%
+				right: 14%
+				top: 8px
+			&:hover
+				color: $accent
+				&::before
+					color: $accent
+			&::before
+				content: '\f219'
+				font-family: FontAwesome
+				margin-right: 8px
+				text-transform: none
+				font-size: 12px
+				color: #ffffff
+				transition: color .25s ease
+		&.active
+			&>a
+				color: $accent
+
 
 @import "media" // Всегда в конце
