@@ -3,9 +3,35 @@ $(function () {
     $('#my-menu').mmenu({
         extensions: ['theme-black', 'effect-menu-slide', 'pagedim-black', 'position-right'],
         navbar: {
-            title: '<img src="img/logo-1.svg" alt="Салоно красоты СМитлер">'
+            title: '<img src="img/logo-1.svg" alt="Салон красоты СМитлер">'
         }
     });
+
+    $('select').selectize({
+        create: true
+    });
+
+    $(document).ready(function() {
+
+        //E-mail Ajax Send
+        $("form.callback").submit(function() { //Change
+            var th = $(this);
+            $.ajax({
+                type: "POST",
+                url: "mail.php", //Change
+                data: th.serialize()
+            }).done(function() {
+               $(th).find('.success').addClass('active').css('display', 'flex').hide().fadeIn();
+                setTimeout(function() {
+                    $(th).find('.success').removeClass('active').fadeOut();
+                    th.trigger("reset");
+                }, 3000);
+            });
+            return false;
+        });
+
+    });
+
 
     var api = $("#my-menu").data("mmenu");
     api.bind('open:finish', function () {
@@ -53,6 +79,11 @@ $(function () {
     $('.carousel-services-composition .h3').each(function () {
         var ths = $(this);
         ths.html(ths.html().replace(/(\S+)\s*$/, '<span>$1</span>'));
+    });
+
+    $('section .h2').each(function () {
+        var ths = $(this);
+        ths.html(ths.html().replace(/^(\S+)/, '<span>$1</span>'));
     });
 
 
