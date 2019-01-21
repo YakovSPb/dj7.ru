@@ -7,8 +7,13 @@ $(function () {
         }
     });
 
-    $('select').selectize({
-        create: true
+    $('select').selectize();
+
+    $('.reviews').owlCarousel({
+        loop: true,
+        items: 1,
+        smartSpeed: 700,
+        autoHeight: true
     });
 
     $(document).ready(function() {
